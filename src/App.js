@@ -8,28 +8,46 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class App extends Component{
-  render() { 
-    return(
-      <React.Fragment>
-        <GlobalStyle/>
-        <Container>
-          <Button>Hello</Button>
-          <Button danger rotationTime={5}>Hello</Button>
-          <Anchor href="http://www.google.com">Go to google</Anchor>
-        </Container>
-      </React.Fragment>
-    );
-  }
-}
-
 // 스타일하려는 html 요소르 럲는다.
+const awsomeCard = css`
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),  1px 3px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+`;
 
 const Container = styled.div`
   height:100vh;
   widht:100%;
   background-color:#bdc3c7;
 `
+
+const Input = styled.input.attrs({
+  required: true
+})`
+  border-radius:5px;
+  border:none;
+  ${awsomeCard}
+`;
+
+class App extends Component{
+  render() { 
+    return(
+      <React.Fragment>
+        <GlobalStyle/>
+        <Container>
+          <Input placeholder="hello"/>
+        </Container>
+      </React.Fragment>
+    );
+  }
+}
+
+
+/*
+<Button>Hello</Button>
+<Button danger rotationTime={5}>Hello</Button>
+<Anchor href="http://www.google.com">Go to google</Anchor>
 const Button = styled.button`
   border-radius: 50px;
   padding: 5px;
@@ -61,4 +79,5 @@ const rotation = keyframes`
     transform: rotate(360deg);
   }
 `;
+*/
 export default App;

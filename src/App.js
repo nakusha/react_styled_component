@@ -1,13 +1,24 @@
 import React, {Component, Fragment } from 'react';
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    padding:0;
+    margin:0;
+  }
+`;
 
 class App extends Component{
   render() { 
     return(
-      <Container>
-        <Button danger>Hello</Button>
-        <Button>Hello</Button>
-      </Container>
+      <React.Fragment>
+        <GlobalStyle/>
+        <Container>
+          <Button danger>Hello</Button>
+          <Button>Hello</Button>
+          <Anchor href="http://www.google.com">Go to google</Anchor>
+        </Container>
+      </React.Fragment>
     );
   }
 }
@@ -33,4 +44,8 @@ const Button = styled.button`
   }
   background-color:${props => props.danger ? "#e74c3c" : "#2ecc71"}
 `
+
+const Anchor = styled(Button.withComponent('a'))`
+    text-decoration: none;
+`;
 export default App;

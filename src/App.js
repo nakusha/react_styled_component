@@ -21,7 +21,10 @@ const Container = styled.div`
   height:100vh;
   widht:100%;
   background-color:#bdc3c7;
-`
+  ${Card} {
+    background-color: blue;
+  }
+`;
 
 const Input = styled.input.attrs({
   required: true
